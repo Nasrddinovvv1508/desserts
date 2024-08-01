@@ -9,8 +9,13 @@ export let getProducts = createAsyncThunk(`products`, async () => {
     return data
 })
 
+function cartFromLocalStorage() {
+    return JSON.parse(localStorage.getItem("cart")) || []
+}
+
 const initialState = {
     products: [],
+    cartProducts: cartFromLocalStorage(),
     totalProducts: 0,
     totalPrice: 0,
     isLoading: false,
@@ -24,6 +29,18 @@ export let cartSlice = createSlice({
         incrementItem: (state, { payload }) => { },
         decrementItem: (state, { payload }) => { },
         calculateTotal: (state, { payload }) => { },
+        addToCart: (state, { payload }) => {
+            if (!state.cartProducts.includes(payload)) {
+                state.cartProducts = [...state.cartProducts, payload]
+            }
+            console.log(state.cartProducts);
+            localStorage.setItem("cart", JSON.stringify(state.cartProducts))
+        },
+        removeFromCart: (state, { payload }) => {
+            state.cartProducts = state.cartProducts.filter((item) => item.id !== payload)
+            console.log(state.cartProducts);
+            localStorage.setItem("cart", JSON.stringify(state.cartProducts))
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -40,5 +57,5 @@ export let cartSlice = createSlice({
     },
 });
 
-export let { incrementItem, decrementItem, calculateTotal } = cartSlice.actions
+export let { incrementItem, decrementItem, calculateTotal, addToCart, removeFromCart } = cartSlice.actions
 export default cartSlice.reducer
