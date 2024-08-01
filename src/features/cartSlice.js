@@ -33,7 +33,6 @@ export let cartSlice = createSlice({
             .addCase(getProducts.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
                 state.products = payload
-                console.log(payload);
             })
             .addCase(getProducts.rejected, (state) => {
                 state.isLoading = false;
