@@ -149,3 +149,325 @@ body {
 .quantity {
     display: none;
 }
+
+
+/* checkout */
+.deleteButton {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.deleteButton svg {
+    width: 44%;
+}
+
+.deleteButton:hover {
+    background-color: rgb(237, 56, 56);
+    overflow: visible;
+}
+
+.bin path {
+    transition: all 0.2s;
+}
+
+.deleteButton:hover .bin path {
+    fill: #fff;
+}
+
+.deleteButton:active {
+    transform: scale(0.98);
+}
+
+.tooltip {
+    --tooltip-color: rgb(41, 41, 41);
+    position: absolute;
+    top: -40px;
+    background-color: var(--tooltip-color);
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 8px 12px;
+    font-weight: 600;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.105);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.tooltip::before {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    content: "";
+    background-color: var(--tooltip-color);
+    bottom: -10%;
+}
+
+.deleteButton:hover .tooltip {
+    opacity: 1;
+}
+
+
+/* checkout */
+/* checkout */
+.checkout-container {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    /* Center items vertically */
+    width: 100%;
+    /* Full width */
+    height: 80px;
+    /* Smaller height */
+    position: relative;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+}
+
+.checkout-container:hover {
+    transform: scale(1.03);
+}
+
+.checkout-left-side {
+    background-color: #5de2a3;
+    width: 130px;
+    height: 80px;
+    /* Match the new container height */
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.checkout-right-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center items horizontally */
+    width: calc(100% - 130px);
+    /* Adjust width to fill the remaining space */
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.checkout-right-side:hover {
+    background-color: #f9f7f9;
+}
+
+.checkout-arrow {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}
+
+.checkout-new {
+    font-size: 23px;
+    font-family: "Lexend Deca", sans-serif;
+    text-align: center;
+    /* Center text */
+}
+
+.checkout-card {
+    width: 70px;
+    height: 46px;
+    background-color: #c7ffbc;
+    border-radius: 6px;
+    position: absolute;
+    display: flex;
+    z-index: 10;
+    flex-direction: column;
+    align-items: center;
+    -webkit-box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
+    -moz-box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
+    -webkit-box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
+}
+
+.checkout-card-line {
+    width: 65px;
+    height: 13px;
+    background-color: #80ea69;
+    border-radius: 2px;
+    margin-top: 7px;
+}
+
+@media only screen and (max-width: 480px) {
+    .checkout-container {
+        transform: scale(0.7);
+    }
+
+    .checkout-container:hover {
+        transform: scale(0.74);
+    }
+
+    .checkout-new {
+        font-size: 18px;
+    }
+}
+
+.checkout-buttons {
+    width: 8px;
+    height: 8px;
+    background-color: #379e1f;
+    box-shadow: 0 -10px 0 0 #26850e, 0 10px 0 0 #56be3e;
+    border-radius: 50%;
+    margin-top: 5px;
+    transform: rotate(90deg);
+    margin: 10px 0 0 -30px;
+}
+
+.checkout-container:hover .checkout-card {
+    animation: slide-top 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+
+.checkout-container:hover .checkout-post {
+    animation: slide-post 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+}
+
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    50% {
+        -webkit-transform: translateY(-70px) rotate(90deg);
+        transform: translateY(-70px) rotate(90deg);
+    }
+
+    60% {
+        -webkit-transform: translateY(-70px) rotate(90deg);
+        transform: translateY(-70px) rotate(90deg);
+    }
+
+    100% {
+        -webkit-transform: translateY(-8px) rotate(90deg);
+        transform: translateY(-8px) rotate(90deg);
+    }
+}
+
+.checkout-post {
+    width: 63px;
+    height: 75px;
+    background-color: #dddde0;
+    position: absolute;
+    z-index: 11;
+    bottom: 10px;
+    top: 80px;
+    /* Adjust to new container height */
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.checkout-post-line {
+    width: 47px;
+    height: 9px;
+    background-color: #545354;
+    position: absolute;
+    border-radius: 0px 0px 3px 3px;
+    right: 8px;
+    top: 8px;
+}
+
+.checkout-post-line:before {
+    content: "";
+    position: absolute;
+    width: 47px;
+    height: 9px;
+    background-color: #757375;
+    top: -8px;
+}
+
+.checkout-screen {
+    width: 47px;
+    height: 23px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 22px;
+    right: 8px;
+    border-radius: 3px;
+}
+
+.checkout-numbers {
+    width: 12px;
+    height: 12px;
+    background-color: #838183;
+    box-shadow: 0 -18px 0 0 #838183, 0 18px 0 0 #838183;
+    border-radius: 2px;
+    position: absolute;
+    transform: rotate(90deg);
+    left: 25px;
+    top: 52px;
+}
+
+.checkout-numbers-line2 {
+    width: 12px;
+    height: 12px;
+    background-color: #aaa9ab;
+    box-shadow: 0 -18px 0 0 #aaa9ab, 0 18px 0 0 #aaa9ab;
+    border-radius: 2px;
+    position: absolute;
+    transform: rotate(90deg);
+    left: 25px;
+    top: 68px;
+}
+
+@keyframes slide-post {
+    50% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    100% {
+        -webkit-transform: translateY(-70px);
+        transform: translateY(-70px);
+    }
+}
+
+.checkout-dollar {
+    position: absolute;
+    font-size: 16px;
+    font-family: "Lexend Deca", sans-serif;
+    width: 100%;
+    left: 0;
+    top: 0;
+    color: #4b953b;
+    text-align: center;
+}
+
+.checkout-container:hover .checkout-dollar {
+    animation: fade-in-fwd 0.3s 1s backwards;
+}
+
+@keyframes fade-in-fwd {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
