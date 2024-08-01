@@ -116,7 +116,6 @@ function Desserts() {
     let updatedDesserts = desserts.map(d => d.id === dessert.id ? { ...d, isAdded: true } : d);
     setDesserts(updatedDesserts);
     localStorage.setItem('addedDesserts', JSON.stringify(updatedDesserts.filter(d => d.isAdded).map(d => d.id)));
-    toast.success('Added to cart');
   }
 
   let handleTrueClick = (id) => {
@@ -124,7 +123,6 @@ function Desserts() {
     let updatedDesserts = desserts.map(d => d.id === id ? { ...d, isAdded: false } : d);
     setDesserts(updatedDesserts);
     localStorage.setItem('addedDesserts', JSON.stringify(updatedDesserts.filter(d => d.isAdded).map(d => d.id)));
-    toast.success('Removed from cart');
   }
 
   return (

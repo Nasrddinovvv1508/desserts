@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 
 let url = `https://online-json-server-api.up.railway.app/project/66a75ee21d2cd3eb11451b71/desserts`
 
@@ -32,6 +33,7 @@ export let cartSlice = createSlice({
         addToCart: (state, { payload }) => {
             if (!state.cartProducts.includes(payload)) {
                 state.cartProducts = [...state.cartProducts, payload]
+                toast.success(`Added ${payload.name} to cart`)
             }
             console.log(state.cartProducts);
             localStorage.setItem("cart", JSON.stringify(state.cartProducts))
@@ -39,6 +41,7 @@ export let cartSlice = createSlice({
         removeFromCart: (state, { payload }) => {
             state.cartProducts = state.cartProducts.filter((item) => item.id !== payload)
             console.log(state.cartProducts);
+            toast.success(`Removed from cart`)
             localStorage.setItem("cart", JSON.stringify(state.cartProducts))
         }
     },

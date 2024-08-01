@@ -1,6 +1,14 @@
-import React from 'react'
+import { useDispatch } from 'react-redux';
+import { removeFromCart } from '../features/cartSlice';
 
 function CartProducts({ product }) {
+    let dispatch = useDispatch();
+
+    // functions
+    let handleDelete = (id) => {
+        dispatch(removeFromCart(id));
+    }
+
     return (
         <div className='w-full py-[16px] border-b-2'>
             <div className='flex justify-between items-center'>
@@ -19,13 +27,33 @@ function CartProducts({ product }) {
                     </div>
                 </div>
 
-                <div>
-                    <button class="deleteButton">
+                <div className='flex items-center'>
+                    <div className="button-container flex items-center gap-2">
+                        <button className="button-3d">
+                            <div className="button-top">
+                                <span className="material-icons">❮</span>
+                            </div>
+                            <div className="button-bottom"></div>
+                            <div className="button-base"></div>
+                        </button>
+                        <p>
+                            0
+                        </p>
+                        <button className="button-3d">
+                            <div className="button-top">
+                                <span className="material-icons">❯</span>
+                            </div>
+                            <div className="button-bottom"></div>
+                            <div className="button-base"></div>
+                        </button>
+                    </div>
+
+                    <button onClick={() => handleDelete(product.id)} className="deleteButton">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 50 59"
-                            class="bin"
+                            className="bin"
                         >
                             <path
                                 fill="#B5BAC1"
@@ -43,7 +71,7 @@ function CartProducts({ product }) {
                             ></path>
                             <path fill="#B5BAC1" d="M2 13H48L47.6742 21.28H2.32031L2 13Z"></path>
                         </svg>
-                        <span class="tooltip">Delete</span>
+                        <span className="tooltip">Delete</span>
                     </button>
                 </div>
             </div>

@@ -208,19 +208,19 @@ function Navbar() {
                         Desserts
                     </Link>
                 </div>
-                <div className="navbar-center hidden lg:flex font-special">
+                <div className="navbar-center hidden lg:flex ">
                     <ul className="menu menu-horizontal px-1 gap-3">
-                        <li><NavLink to={`/about`} className='lowercase text-lg'>About</NavLink></li>
+                        <li><NavLink to={`/about`} className='lowercase text-lg font-speacial'>About</NavLink></li>
                         <li>
                             <details className='w-[130px]'>
-                                <summary className='lowercase text-lg'>Desserts</summary>
+                                <summary className='font-speacial lowercase text-lg'>Desserts</summary>
                                 <ul className="flex flex-col gap-1 w-full">
-                                    <li><NavLink to={`/desserts`}>All Desserts</NavLink></li>
-                                    <li><NavLink to={`/menus`}>Menu</NavLink></li>
+                                    <li><NavLink className={`font-speacial`} to={`/desserts`}>All Desserts</NavLink></li>
+                                    <li><NavLink className={`font-speacial`} to={`/menus`}>Menu</NavLink></li>
                                 </ul>
                             </details>
                         </li>
-                        <li><NavLink to={`/books`} className='lowercase text-lg'>Books</NavLink></li>
+                        <li><NavLink to={`/books`} className='font-speacial lowercase text-lg'>Books</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -253,54 +253,54 @@ function Navbar() {
                                                         return (
                                                             <div className='w-full' key={product.id}>
                                                                 <CartProducts product={product} />
-                                                                <div className='w-full mt-[24px] flex justify-between'>
-                                                                    <p className='text-[#260F08]'>
-                                                                        Order Total
-                                                                    </p>
-                                                                    <p className='text-[#260F08] font-bold text-xl text-right'>
-                                                                        $46.50
-                                                                    </p>
-                                                                </div>
-
-                                                                <div className='mt-[24px] bg-[#FCF8F6] w-full py-[16px] flex items-center justify-center'>
-                                                                    <div className='flex items-center gap-2 mx-auto'>
-                                                                        <div className='w-[20px] h-[20px]'>
-                                                                            <img className='select-none' src="../assets/carbon_tree.svg" alt="carbon_tree" />
-                                                                        </div>
-                                                                        <p>
-                                                                            This is a <span className='font-semibold tracking-[1px]'>carbon-neutral</span> delivery
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div>
-                                                                    <div  
-                                                                    className="checkout-container mt-[24px]"
-                                                                    onClick={() => toast.success(`Order confirmed! You can can continue shopping`)}
-                                                                    >
-                                                                        <div className="checkout-left-side">
-                                                                            <div className="checkout-card">
-                                                                                <div className="checkout-card-line"></div>
-                                                                                <div className="checkout-buttons"></div>
-                                                                            </div>
-                                                                            <div className="checkout-post">
-                                                                                <div className="checkout-post-line"></div>
-                                                                                <div className="checkout-screen">
-                                                                                    <div className="checkout-dollar">$</div>
-                                                                                </div>
-                                                                                <div className="checkout-numbers"></div>
-                                                                                <div className="checkout-numbers-line2"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div className="checkout-right-side h-full">
-                                                                            <div className="checkout-new select-none">Checkout</div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
                                                             </div>
                                                         )
                                                     })
                                                 }
+                                                <div className='w-full mt-[24px] flex justify-between'>
+                                                    <p className='text-[#260F08]'>
+                                                        Order Total
+                                                    </p>
+                                                    <p className='text-[#260F08] font-bold text-xl text-right'>
+                                                        $46.50
+                                                    </p>
+                                                </div>
+
+                                                <div className='mt-[24px] bg-[#FCF8F6] w-full py-[16px] flex items-center justify-center'>
+                                                    <div className='flex items-center gap-2 mx-auto'>
+                                                        <div className='w-[20px] h-[20px]'>
+                                                            <img className='select-none' src="../assets/carbon_tree.svg" alt="carbon_tree" />
+                                                        </div>
+                                                        <p>
+                                                            This is a <span className='font-semibold tracking-[1px]'>carbon-neutral</span> delivery
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <div
+                                                        className="checkout-container mt-[24px] w-full"
+                                                        onClick={() => toast.success(`Order confirmed! You can can continue shopping`)}
+                                                    >
+                                                        <div className="checkout-left-side">
+                                                            <div className="checkout-card">
+                                                                <div className="checkout-card-line"></div>
+                                                                <div className="checkout-buttons"></div>
+                                                            </div>
+                                                            <div className="checkout-post">
+                                                                <div className="checkout-post-line"></div>
+                                                                <div className="checkout-screen">
+                                                                    <div className="checkout-dollar">$</div>
+                                                                </div>
+                                                                <div className="checkout-numbers"></div>
+                                                                <div className="checkout-numbers-line2"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="checkout-right-side h-full">
+                                                            <div className="checkout-new select-none">Checkout</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </>
                                             :
                                             <>
