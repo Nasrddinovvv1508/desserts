@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 // layouts
 import RootLayout from './layout/RootLayout.jsx'
-import { About, Books, Desserts, Home } from './pages'
+import { About, Books, Desserts, Home, Menus } from './pages'
 
 function App() {
   let routes = createBrowserRouter([
@@ -26,6 +26,10 @@ function App() {
         {
           path: `desserts`,
           element: <Desserts />
+        },
+        {
+          path: `/menus`,
+          element: <Menus />
         }
       ]
     }
