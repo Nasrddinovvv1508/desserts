@@ -611,17 +611,24 @@ body {
 }
 
 
-/* Books Page Styling */
 .books-page {
-    padding: 20px;
+    padding: 2rem;
 }
 
-.books-list {
-    list-style: none;
-    padding: 0;
+.book-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.2s;
 }
 
-.books-list .book {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
+.book-card:hover {
+    transform: scale(1.05);
+}
+
+.book-card h2 {
+    font-size: 1.25rem;
+}
+
+.book-card p {
+    color: #555;
 }
