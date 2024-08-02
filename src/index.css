@@ -574,3 +574,54 @@ body {
     border-radius: 5px;
     /* Reduce border-radius */
 }
+
+
+/* General chat bubble styles */
+.chat {
+    margin-bottom: 1rem;
+}
+
+.chat-start {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.chat-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chat-bubble {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    /* background-color: #f3f4f6; */
+    position: relative;
+    font-size: 16px;
+}
+
+/* Delete button styling */
+.delete-comment {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: red;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+
+/* Books Page Styling */
+.books-page {
+    padding: 20px;
+}
+
+.books-list {
+    list-style: none;
+    padding: 0;
+}
+
+.books-list .book {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
