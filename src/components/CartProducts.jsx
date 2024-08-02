@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { removeFromCart } from '../features/cartSlice';
+import { removeFromCart, incrementItem, decrementItem } from '../features/cartSlice';
 
 function CartProducts({ product }) {
     let dispatch = useDispatch();
@@ -9,6 +9,16 @@ function CartProducts({ product }) {
         dispatch(removeFromCart(id));
     }
 
+    let handleIncrement = (id) => {
+        dispatch(incrementItem(id));
+    }
+
+    let handleDecrement = (id) => {
+        if (product.amount > 1) {
+            dispatch(decrementItem(id));
+        }
+    }
+
     return (
         <div className='w-full py-[16px] border-b-2'>
             <div className='flex justify-between items-center'>
@@ -16,20 +26,23 @@ function CartProducts({ product }) {
                     <h1 className='font-semibold text-[#260F08] text-[16px]'>{product.name}</h1>
                     <div className='flex gap-[8px] mt-[6px]'>
                         <p className='font-semibold text-[#C73B0F]'>
-                            1x
+                            {product.amount}x
                         </p>
                         <p className='text-[#87635A]'>
                             @ ${product.price}
                         </p>
                         <p className='text-[#87635A] font-semibold'>
-                            ${product.price}
+                            ${(product.price * product.amount).toFixed(2)}
                         </p>
                     </div>
                 </div>
 
                 <div className='flex items-center'>
                     <div className="button-container flex items-center gap-2">
-                        <button className="button-3d">
+                        <button
+                            onClick={() => handleDecrement(product.id)}
+                            disabled={product.amount <= 1}
+                            className={`button-3d ${product.amount <= 1 ? 'opacity-50 cursor-not-allowed' : ''}`}>
                             <div className="button-top">
                                 <span className="material-icons">❮</span>
                             </div>
@@ -37,9 +50,9 @@ function CartProducts({ product }) {
                             <div className="button-base"></div>
                         </button>
                         <p>
-                            0
+                            {product.amount}
                         </p>
-                        <button className="button-3d">
+                        <button onClick={() => handleIncrement(product.id)} className="button-3d">
                             <div className="button-top">
                                 <span className="material-icons">❯</span>
                             </div>
@@ -79,4 +92,4 @@ function CartProducts({ product }) {
     )
 }
 
-export default CartProducts
+export default CartProducts;
