@@ -632,3 +632,7 @@ body {
 .book-card p {
     color: #555;
 }
+
+.transitions {
+    transition: all 0.2s ease-in-out;
+}

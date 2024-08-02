@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 function Home() {
     return (
@@ -19,6 +20,21 @@ function Home() {
                 <div className='w-[400px]'>
                     <video autoPlay muted loop src="../assets/videos/cake.mp4"></video>
                 </div>
+            </section>
+
+            <section className="main-container grid grid-cols-2 h-[300px] gap-[30px] my-[120px]">
+                <Link to={`/about`} className="text-2xl font-semibold text-center hover:scale-[105%]  capitalize border-2 w-full rounded-3xl shadow-xl flex justify-center items-center">
+                    <p className="w-7/12">
+                        Can You Satisfy Your Sweetness?
+                        Comment this and let us know.
+                    </p>
+                </Link>
+
+                <Link to={`/books`} className="text-2xl font-semibold text-center hover:scale-[105%] transitions capitalize w-full border-2  rounded-3xl shadow-xl flex justify-center items-center">
+                    <p className="w-7/12">
+                        learn how to make new sweeten dessert from out books.
+                    </p>
+                </Link>
             </section>
         </div>
     )
